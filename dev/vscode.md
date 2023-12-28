@@ -4,6 +4,7 @@
 [Dev Containers](https://code.visualstudio.com/docs/devcontainers/containers)  
 [Dev Containers Features](https://containers.dev/features)  
 [VSCode shortcuts on Mac](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)  
+[Prettier in VSCode](https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code)  
 
 
 ## Setup
@@ -20,19 +21,29 @@ This is local clean setup. Also supports already existing project, remote ssh ho
 **: First run and changes to `devcontainer.json` will trigger build of devcontainers, takes a few minutes.
 
 ### Optional
-If container has more then single project, fix VSCode's working directories by running cmd `Preferences: Open Remote Settings (JSON): ...`
-
-```JSON
-"eslint.workingDirectories": [
-       { "pattern": "/workspaces/{node|bun}-<MM><YY>/*" }
-]
-```
-
 Add more features by editing `devcontainer.json`.
 ```JSON
 "features": {
     "ghcr.io/devcontainers/features/docker-in-docker:2": {}
 }
+```
+
+Update NPM in devcontainer
+```sh
+npm install -g npm@latest
+```
+
+Install Bun:
+```sh
+curl -fsSL https://bun.sh/install | bash
+```
+
+**Deprecated**: If container has more then single project, fix VSCode's working directories by running cmd `Preferences: Open Remote Settings (JSON): ...`
+
+```JSON
+"eslint.workingDirectories": [
+       { "pattern": "/workspaces/rmtdev/*" }
+]
 ```
 
 ## VSCode Extensions
@@ -41,4 +52,4 @@ These extensions are installed via VSCode Sync.
 - [Docker](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-docker)
 - [Dev Containers](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-containers)
 - [Tailwind CSS IntelliSense](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) + [DO: Prettier in VSCode](https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code)
+- [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
