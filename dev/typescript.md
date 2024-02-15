@@ -116,3 +116,84 @@ enum AccountRole {
 
 const isAdmin = (user.role === AccountRole.Admin);
 ```
+
+## Type Guards (narrowing)
+### as (type assertion)
+- use only if necessary, type guards are better solution in most cases
+- **be aware**: example of TS quirk [type guarding against null](https://stackoverflow.com/questions/57639697/typescript-type-guarding-against-null)
+```TypeScript
+const button = document.getElementById("og_btn") as HTMLButtonElement | null;
+// outside of tsx
+<HTMLButtonElement>document.getElementById("og_btn");
+
+// non null assertion (!)
+DoSomething(button!);
+```
+
+### typeof
+- returns: `string`, `number`, `bigint`, `boolean`, `symbol`, `undefined`, `object` or `function`
+- **be aware**: `null` is `object` (arrays and everything other then primitives is also `object`)
+```TypeScript
+if (typeof variable === "string") { /* narrow to string type */ }
+
+```
+
+### truthiness
+- `0`, `NaN`, `""`, `0n`, `null` and `undefined` coerce to `false`
+- **be aware**: empty string `""` will coerce to false, it might not be desired behaviour
+```TypeScript
+function printAll(strs: string | string[] | null) {
+  if (strs && typeof strs === "object") {
+    for (const s of strs) {
+      // string[]
+    }
+  } else if (typeof strs === "string") {
+    // string || ""
+  }
+}
+
+// nullish coalescing operator (??): if left-hand side is null or undefined, return right-hand side (great for default values)
+const nc = expression ?? 'whatever i want';
+```
+
+### equality
+- **be aware**: loose equality `==` can be used to remove `null` and `undefined` at the same time
+```TypeScript
+function dumbFn(msg: string | null | undefined ) {
+  if (msg != null) {
+    // remove both 'null' and 'undefined' from the type.
+  }
+}
+```
+
+### in
+- `property` in `object`
+```TypeScript
+type Employee = { something: () => void };
+type Contractor = { anything: () => void };
+
+function work(developer: Employee | Contractor) {
+  if ("something" in developer) { ... }
+}
+```
+
+### instanceof
+```TypeScript
+function work(developer: Employee | Contractor) {
+  if (developer instanceof Contractor) { ... }
+}
+```
+
+### is (type predicates)
+- `parameter` is `Type`
+- [assertion signatures](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-3-7.html#assertion-functions)
+```TypeScript
+function isEmployee(developer: Employee | Contractor): developer is Employee {
+  return (developer as Employee).something !== undefined;
+}
+
+// more useful example
+function isString(x: unknown): x is string {
+  return typeof x === 'string';
+}
+```
