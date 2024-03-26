@@ -4,7 +4,7 @@
 1. [Arrays](typescript/arrays.md)
 2. [Linked Lists](typescript/linkedlists.md)
 3. [Stacks](typescript/stacks.md)
-4. Queues
+4. [Queues](typescript/queues.md)
 5. Hash Tables (Hash Maps)
 6. Trees (Binary Trees, AVL Trees, Red-Black Trees)
 7. Heaps (Binary Heaps)
