@@ -76,7 +76,7 @@
    - Progressive Web Apps (PWAs)
    - Web Performance Optimization (e.g., Lazy Loading, Minification)
 6. Version Control Systems:
-   - Git (Branching, Merging, Rebasing)
+   - [Git](git.md)
 7. Testing:
    - Unit Testing
    - Integration Testing
