@@ -1,7 +1,7 @@
 # Dev learning path
 
 ## Data Structures:
-1. Arrays
+1. [Arrays](typescript/arrays.md)
 2. Linked Lists (Singly and Doubly)
 3. Stacks
 4. Queues
