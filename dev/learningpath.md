@@ -2,7 +2,7 @@
 
 ## Data Structures:
 1. [Arrays](typescript/arrays.md)
-2. Linked Lists (Singly and Doubly)
+2. [Linked Lists](typescript/linkedlists.md)
 3. Stacks
 4. Queues
 5. Hash Tables (Hash Maps)
