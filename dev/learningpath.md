@@ -5,7 +5,7 @@
 2. [Linked Lists](typescript/linkedlists.md)
 3. [Stacks](typescript/stacks.md)
 4. [Queues](typescript/queues.md)
-5. Hash Tables (Hash Maps)
+5. [Hash Tables](typescript/maps.md)
 6. Trees (Binary Trees, AVL Trees, Red-Black Trees)
 7. Heaps (Binary Heaps)
 8. Graphs (Directed and Undirected)
